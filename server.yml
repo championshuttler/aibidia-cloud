@@ -1,0 +1,15 @@
+Description: >
+  We can create virtual firewall for our gcp provider to control incoming and outgoing traffic by 
+  Specifyig a firewall rule in the Cloud Console or using 
+  `gcloud compute firewall-rules create` to allow traffic from any source and from tcp. or 
+
+network:
+  instance_tag: abidia
+  name: abidia_network
+  subnetwork_name: abidia_subnet
+  session_affinity: true
+  forwarded_ports:
+    - PORT
+    - HOST_PORT:CONTAINER_PORT
+    - PORT/tcp
+    - HOST_PORT:CONTAINER_PORT/udp

@@ -1,0 +1,18 @@
+[
+    {
+        "ParameterKey": "Abidia_Environment",
+        "ParameterValue": "Project"
+    },
+    {
+        "ParameterKey": "VpcCird",
+        "ParameterValue": "1.0.0.0/16"
+    },
+    {
+        "ParameterKey": "PublicCidrBlock",
+        "ParameterValue": "1.0.0.0/24"
+    },
+    {
+        "ParameterKey": "PrivateCidrBlock",
+        "ParameterValue": "1.0.2.0/24"
+    }
+]
