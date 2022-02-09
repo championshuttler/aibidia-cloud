@@ -4,9 +4,9 @@ Description: >
   `gcloud compute firewall-rules create` to allow traffic from any source and from tcp. or 
 
 network:
-  instance_tag: abidia
-  name: abidia_network
-  subnetwork_name: abidia_subnet
+  instance_tag: aibidia
+  name: aibidia_network
+  subnetwork_name: aibidia_subnet
   session_affinity: true
   forwarded_ports:
     - PORT

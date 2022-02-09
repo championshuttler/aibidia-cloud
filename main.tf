@@ -1,6 +1,6 @@
 # config the gcp provider
 provider "google" {
-  project = "abidia"
+  project = "aibidia"
   credentials = file(“service_account_key.json”)
   region  = "us-central1"
   zone    = "us-central1-c"
@@ -14,13 +14,13 @@ resource “google-compute_network” “vpc_network” {
 
 # Configure Internet Gateway
 resource "google_compute_network" "default" {
-  name = "abidia-network"
+  name = "aibidia-network"
   auto_create_subnetworks = false
 }
 
 # config public subnet
 resource "google_compute_subnetwork" "public-subnetwor" {
-  name          = "abidia-subnet"
+  name          = "aibidia-subnet"
   ip_cidr_range = "10.0.1.0/24"
   region        = "us-central1"
   network       = google_compute_network.default.id
@@ -28,7 +28,7 @@ resource "google_compute_subnetwork" "public-subnetwor" {
 
 # config private subnet
 resource "google_compute_subnetwork" "private-subnetwork" {
-  name          = "abidia-subnet"
+  name          = "aibidia-subnet"
   ip_cidr_range = "10.0.1.0/24"
   region        = "us-central1"
   network       = google_compute_network.default.id
@@ -36,7 +36,7 @@ resource "google_compute_subnetwork" "private-subnetwork" {
 
 # config health check
 resource "google_compute_health_check" "hc" {
-  name               = "abidia-health-check"
+  name               = "aibidia-health-check"
   check_interval_sec = 1
   timeout_sec        = 1
   tcp_health_check {
@@ -77,8 +77,8 @@ resource "google_compute_route" "private_router" {
 }
 
 # config sec group
-resource "google_compute_security_policy" "abidia-policy" {
-  name = "abidia"
+resource "google_compute_security_policy" "aibidia-policy" {
+  name = "aibidia"
 
   rule {
     action   = "deny(403)"
@@ -112,7 +112,7 @@ resource "google_service_account" "default" {
 }
 
 resource "google_compute_instance" "default" {
-  name         = "abidia"
+  name         = "aibidia"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
@@ -126,7 +126,7 @@ resource "google_compute_instance" "default" {
 
 # gcp compute disk config
 resource "google_compute_disk" "default" {
-  name  = "abidia-disk"
+  name  = "aibidia-disk"
   type  = "pd-ssd"
   zone  = "us-central1-a"
   image = "debian-9-stretch-v20200805"
